@@ -1,0 +1,193 @@
+category: Utilities
+commonfields:
+  id: NASA
+  version: -1
+configuration:
+- display: API Key
+  name: apikey
+  required: true
+  type: 4
+- defaultvalue: https://api.nasa.gov/
+  display: URL
+  name: url
+  required: false
+  type: 0
+contentitemexportablefields:
+  contentitemfields:
+    definitionid: ""
+    fromServerVersion: ""
+    itemVersion: ""
+    packID: ""
+    packName: ""
+    propagationLabels:
+    - all
+    toServerVersion: ""
+description: This is the NASA integration for getting the Astronomy Picture of the
+  Day.
+detaileddescription: |-
+  ## NASA Open APIs integration
+  #### Integration Author: Samuel Kamar
+
+  You can get your api key at https://api.nasa.gov/
+display: NASA
+image: data:image/png;base64,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
+name: NASA
+script:
+  commands:
+  - arguments:
+    - default: true
+      description: 'Specify the date to get an image. Format: YYYY-MM-DD'
+      name: date
+    - description: 'Used when requesting date for a range of dates. Format: YYYY-MM-DD'
+      name: start_date
+    - description: 'Used when requesting date for a range of dates. Format: YYYY-MM-DD'
+      name: end_date
+    - description: "\tIf this is specified then count randomly chosen images will
+        be returned. Cannot be used with date or start_date and end_date."
+      name: count
+    description: Get the image of the day
+    name: nasa-abod-get-Image
+  - arguments:
+    - description: 'Format: YYYY-MM-DD. Starting date for asteroid search'
+      name: start_date
+    - description: 'Format: YYYY-MM-DD. Ending date for asteroid search. Default:
+        7 days after start_date.'
+      name: end_date
+    description: Get a list of Near earth object based on a date range
+    name: nasa-neo-feed
+  dockerimage: demisto/python3:3.10.5.31928
+  runonce: false
+  script: |
+    class Client(BaseClient):
+        def __init__(self, base_url:str, api_key:str):
+            super().__init__(base_url= base_url)
+            self.api_key = api_key
+
+        def apod_request(self, data):
+            data["api_key"] = self.api_key
+            return self._http_request(method='GET', url_suffix = 'planetary/apod', params=data, ok_codes=(200,))
+
+        def neo_feed_request(self, data):
+            data["api_key"] = self.api_key
+            return self._http_request(method='GET', url_suffix = 'neo/rest/v1/feed', params=data, ok_codes=(200,))
+
+
+    def test_module(client:Client) -> str:
+        data = {}
+        try:
+            # Testing abod method
+            abod_res = client.apod_request(data)
+            test_abod_status = demisto.get(abod_res, "copyright")
+
+            # Testing neo feed method
+            neo_res = client.neo_feed_request(data)
+            test_neo_status = demisto.get(neo_res,'element_count')
+
+            if test_abod_status and test_neo_status:
+                return 'ok'
+            else:
+                return f'Test failed. Expected a for the image generated. Received {test_status}'
+
+        except Exception as e:
+            raise e
+
+    def create_abod_entry(response):
+
+        title = demisto.get(response, "title")
+        image = demisto.get(response, "url")
+        details = demisto.get(response, "explanation")
+        content = {"Title": title, "Image": image, "Details": details}
+        md = f'{title}|\n|-----------------|\n|![]({image})|\n|{details}|\n'
+
+        entry = {'Type' : entryTypes['image'],
+            'ContentsFormat': formats['markdown'],
+            'Contents': content,
+            'HumanReadable': md,
+            'ReadableContentsFormat' : formats['markdown']}
+
+        return entry
+
+    def apod_get_image(client:Client, data):
+
+        try:
+            response = client.apod_request(data)
+        except Exception as e:
+            raise(f"Error running command. Encounted error {e}")
+
+        if type(response) != list:
+            output = create_abod_entry(response)
+        else:
+            output = []
+            for items in response:
+                entry = create_abod_entry(items)
+                output.append(entry)
+
+        return output
+
+    def get_neo_feed(client, data):
+
+        try:
+            response = client.neo_feed_request(data)
+            count_of_elements = demisto.get(response,"element_count")
+            main_output = demisto.get(response, "near_earth_objects")
+            link = str(demisto.get(response, "links").get('self'))
+            dates = re.search(r"(start_date=[0-9]{4}-[0-9]{2}-[0-9]{2})&(end_date=[0-9]{4}-[0-9]{2}-[0-9]{2})",link)
+            start_date = dates.group(1).split('=')[1]
+            end_date = dates.group(2).split('=')[1]
+
+            content = {}
+            md = f"## Total of {count_of_elements} Space Objects are approaching Earth between {start_date} to {end_date}\n|ID|Name|Minimum Diameter|Maximum Diameter|Close Approach Date|\n|-|-|-|-|-|\n"
+
+            for dates, items in main_output.items():
+                if items:
+                    for near_earth_obj in items:
+                        obj_id = near_earth_obj.get('id')
+                        obj_name = near_earth_obj.get('name').strip('()')
+                        obj_min_diameter = near_earth_obj.get('estimated_diameter').get('feet').get('estimated_diameter_min')
+                        obj_max_diameter = near_earth_obj.get('estimated_diameter').get('feet').get('estimated_diameter_max')
+                        obj_close_aproach_date = near_earth_obj.get('close_approach_data')[0].get('close_approach_date_full')
+                        content[obj_id] = {"id": obj_id, "name": obj_name, "min_dia": str(obj_min_diameter)+' ft',"max_dia":str(obj_max_diameter)+' ft',
+                        "close_date":obj_close_aproach_date }
+
+            for items, ch_obj in content.items():
+                md += f'|{ch_obj["id"]}|{ch_obj["name"]}|{ch_obj["min_dia"]}|{ch_obj["max_dia"]}|{ch_obj["close_date"]}|\n'
+
+            entry = {'Type' : entryTypes['note'],'Contents': content, 'ContentsFormat' : formats['json'], 'HumanReadable': md, 'ReadableContentsFormat' : formats['markdown']}
+        except Exception as e:
+            return (f"An error occured during command execution. {str(e)}")
+        return entry
+
+    def main():
+        args = demisto.args()
+        params = demisto.params()
+        command = demisto.command()
+
+        api_key = params.get('apikey')
+        base_url = params.get('url')
+
+        demisto.debug(f'Command being called is {command}')
+
+        try:
+            client = Client(base_url, api_key)
+
+            if command == 'test-module':
+                return_results(test_module(client))
+
+            elif command == 'nasa-abod-get-Image':
+                return_results(apod_get_image(client, args))
+            elif command == 'nasa-neo-feed':
+                return_results(get_neo_feed(client, args))
+            else:
+                raise NotImplementedError(f"command {command} is not implemented.")
+
+        except Exception as e:
+            demisto.error(traceback.format_exc())
+            return_error("\n".join((f"Failed to execute {command} command.",
+                                    "Error:",
+                                    str(e))))
+
+    if __name__ in ('__main__', '__builtin__', 'builtins'):
+        main()
+  subtype: python3
+  type: python
+sourcemoduleid: NASA_APOD
