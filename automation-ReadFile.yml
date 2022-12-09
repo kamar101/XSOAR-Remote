@@ -1,0 +1,92 @@
+args:
+- default: true
+  description: War room entryID of the file to read.
+  name: entryID
+  required: true
+- description: Maximal file size to load, in bytes. Default is 1MB.
+  name: maxFileSize
+- auto: PREDEFINED
+  description: The character encoding of the file
+  name: encoding
+  predefined:
+  - utf-8
+  - utf-16
+  - ascii
+comment: Load the contents of a file into context.
+commonfields:
+  id: ReadFile
+  version: -1
+contentitemexportablefields:
+  contentitemfields:
+    definitionid: ""
+    fromServerVersion: 5.0.0
+    itemVersion: 1.10.21
+    packID: CommonScripts
+    packName: Common Scripts
+    packPropagationLabels:
+    - all
+    propagationLabels: []
+    toServerVersion: ""
+dockerimage: demisto/python3:3.10.6.33415
+enabled: true
+engineinfo: {}
+mainengineinfo: {}
+name: ReadFile
+outputs:
+- contextPath: FileData
+  description: Data read from war room file
+  type: Unknown
+pswd: ""
+runas: DBotWeakRole
+runonce: false
+script: |
+  register_module_line('ReadFile', 'start', __line__())
+
+
+
+
+
+  def read_file(args):
+      max_file_size = demisto.get(args, 'maxFileSize')
+      if max_file_size:
+          max_file_size = int(max_file_size)
+      else:
+          max_file_size = 1024 ** 2
+      res = demisto.executeCommand('getFilePath', {'id': args.get('entryID')})
+      file_path = res[0]['Contents']['path']
+
+      with open(file_path, 'r') as f:
+          data = f.read(max_file_size)
+
+      if data:
+          message = 'Read {} bytes from file.'.format(len(data))
+          result = {"Type": entryTypes["note"],
+                    "ContentsFormat": formats["text"],
+                    "Contents": {"FileData": data},
+                    "HumanReadable": message,
+                    "EntryContext": {"FileData": data}
+                    }
+      else:
+          raise Exception('No data could be read.')
+      return result
+
+
+  def main():
+      try:
+          args = demisto.args()
+          demisto.results(read_file(args))
+      except Exception as e:
+          return_error('Failed to run script - {}'.format(str(e)))
+
+
+  if __name__ in ['__main__', 'builtin', 'builtins']:
+      main()
+
+  register_module_line('ReadFile', 'end', __line__())
+scripttarget: 0
+subtype: python3
+system: true
+tags:
+- Utility
+- ingestion
+type: python
